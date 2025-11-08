@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // <-- import Link
-import pfimage from "../../../../assets/images/pfimage.png";
+import pfimage from "../../../images/pfimage.png";
 
 export default function Home() {
     return (
