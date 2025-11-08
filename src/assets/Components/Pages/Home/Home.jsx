@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"; // <-- import Link
-import pfimage from "../../../images/pfimage.png";
+// import pfimage from "../../../images/pfimage.png";
 
 export default function Home() {
     return (
@@ -42,7 +42,7 @@ export default function Home() {
                 <div className="relative md:w-1/2 flex justify-center">
                     <div className="w-64 h-64 md:w-80 md:h-80 bg-linear-to-br from-purple-500/30 to-blue-500/30 rounded-full shadow-lg shadow-purple-500/30 flex items-center justify-center overflow-hidden border-2 border-purple-500/30">
                         <img
-                            src={pfimage}
+                            // src={pfimage}
                             alt="Faiz Khan"
                             className="w-full h-full object-cover rounded-full"
                         />
