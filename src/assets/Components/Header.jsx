@@ -13,7 +13,7 @@ export default function Header() {
     ];
 
     return (
-        <nav className="flex justify-between items-center px-8 py-4 bg-slate-800 shadow-md relative">
+        <nav className="flex justify-between items-center px-8 py-4 bg-slate-800 shadow-md fixed top-0 left-0 w-full z-50">
             <h1 className="text-2xl font-bold text-white">Faiz Portfolio</h1>
 
             {/* Desktop Nav */}
@@ -23,6 +23,7 @@ export default function Header() {
                         <Link
                             to={link.path}
                             className="text-gray-300 hover:text-white transition duration-200"
+                            onClick={() => setMenuOpen(false)}
                         >
                             {link.name}
                         </Link>
@@ -46,7 +47,7 @@ export default function Header() {
                             <Link
                                 to={link.path}
                                 className="text-gray-300 hover:text-white text-lg transition duration-200"
-                                onClick={() => setMenuOpen(false)} // Close menu after click
+                                onClick={() => setMenuOpen(false)}
                             >
                                 {link.name}
                             </Link>
