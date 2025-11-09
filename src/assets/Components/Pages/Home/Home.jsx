@@ -29,12 +29,12 @@ export default function Home() {
                         </Link>
 
                         {/* Scroll to Contact Section */}
-                        <a
-                            href="/contact"
+                        <Link
+                            to="/contact"
                             className="px-8 py-3 border border-purple-400 rounded-lg font-semibold hover:bg-purple-400 hover:text-black transition-all duration-300 hover:scale-105"
                         >
                             Contact Me
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
