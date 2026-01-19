@@ -1,19 +1,18 @@
 import React from "react";
-// Importing more stable icon sets (Remix and Tabler)
 import { RiReactjsLine, RiHtml5Line, RiCss3Line, RiNodejsLine, RiGithubLine } from "react-icons/ri";
-import { TbBrandJavascript, TbBrandMongodb, TbBrandGithub, TbBrandVscode, TbGitBranch, TbApi } from "react-icons/tb";
+import { TbBrandJavascript, TbBrandMongodb, TbBrandVscode, TbGitBranch, TbApi } from "react-icons/tb";
 
 export default function About() {
     const techStack = {
         frontend: [
-            { name: "React", icon: <RiReactjsLine />, color: "hover:text-cyan-400" },
+            { name: "React (Basics)", icon: <RiReactjsLine />, color: "hover:text-cyan-400" },
             { name: "JavaScript", icon: <TbBrandJavascript />, color: "hover:text-yellow-400" },
             { name: "HTML5", icon: <RiHtml5Line />, color: "hover:text-orange-500" },
             { name: "CSS3", icon: <RiCss3Line />, color: "hover:text-blue-500" },
         ],
         backend: [
-            { name: "Node.js", icon: <RiNodejsLine />, color: "hover:text-green-500" },
-            { name: "Express", icon: <TbApi />, color: "hover:text-gray-400" }, // Using API icon for Express
+            { name: "Node.js (Basics)", icon: <RiNodejsLine />, color: "hover:text-green-500" },
+            { name: "Express.js", icon: <TbApi />, color: "hover:text-gray-400" },
             { name: "MongoDB", icon: <TbBrandMongodb />, color: "hover:text-green-600" },
         ],
         tools: [
@@ -26,7 +25,6 @@ export default function About() {
 
     return (
         <section id="about" className="relative min-h-screen bg-[#020617] text-white px-6 py-28 overflow-hidden">
-            {/* Background geometric accent */}
             <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-blue-600/10 blur-[120px] -z-10" />
 
             <div className="max-w-7xl mx-auto">
@@ -36,17 +34,19 @@ export default function About() {
                             ABOUT <span className="text-blue-600 underline decoration-blue-500/20">ME.</span>
                         </h2>
                         <p className="mt-8 text-gray-400 text-lg md:text-xl leading-relaxed font-light">
-                            I'm <span className="text-white font-bold">Mohd Faiz</span>, a
-                            <span className="text-blue-400 font-semibold"> MERN Stack Developer</span> building scalable
-                            Full-Stack applications.
+                            I'm <span className="text-white font-bold">Mohd Faiz</span>, a beginner-level
+                            <span className="text-blue-400 font-semibold"> Full Stack Developer</span> learning
+                            web development by building simple projects.
+                            I work with the MERN stack and focus on understanding
+                            how frontend, backend, and databases connect.
                         </p>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    <StackCard title="Frontend Architecture" items={techStack.frontend} />
-                    <StackCard title="Server & Database" items={techStack.backend} />
-                    <StackCard title="Dev Tools & Workflow" items={techStack.tools} />
+                    <StackCard title="Frontend Basics" items={techStack.frontend} />
+                    <StackCard title="Backend & Database Basics" items={techStack.backend} />
+                    <StackCard title="Tools I Use" items={techStack.tools} />
                 </div>
             </div>
         </section>

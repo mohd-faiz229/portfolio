@@ -1,113 +1,92 @@
-import React, { useState } from "react";
-import { FaEnvelope, FaPhoneAlt } from "react-icons/fa";
+import React from "react";
+import { RiMailLine, RiPhoneLine, RiGithubLine, RiLinkedinLine, RiMapPinLine } from "react-icons/ri";
 
 export default function Contact() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        message: "",
-    });
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Submitted:", formData);
-        alert("Message sent successfully!");
-        setFormData({ name: "", email: "", message: "" });
-    };
-
     return (
-        <section
-            id="contact"
-            className="min-h-screen bg-[#0a0a0a] text-white flex items-center justify-center px-6 py-20"
-        >
-            <div className="max-w-5xl w-full mx-auto">
-                <h2 className="text-4xl font-bold text-center mb-10 text-white">
-                    Contact <span className="text-purple-400">Me</span>
-                </h2>
+        <section id="contact" className="relative bg-[#020617] text-white flex items-center justify-center px-6 py-24">
+            <div className="max-w-4xl w-full mx-auto text-center">
 
-                <div className="grid md:grid-cols-2 gap-10">
-                    {/* Contact Info */}
-                    <div className="flex flex-col justify-center space-y-6">
-                        <p className="text-lg text-gray-300">
-                            Got a project in mind or want to collaborate? Let’s talk!
-                        </p>
-                        <div className="flex items-center gap-4">
-                            <FaEnvelope className="text-purple-400 text-xl" />
-                            <a
-                                href="mailto:faizkhan@gmail.com"
-                                className="text-gray-300 hover:text-purple-400 transition"
-                            >
-                                faizkhan@gmail.com
-                            </a>
-                        </div>
-                        <div className="flex items-center gap-4">
-                            <FaPhoneAlt className="text-purple-400 text-xl" />
-                            <a
-                                href="tel:+919876543210"
-                                className="text-gray-300 hover:text-purple-400 transition"
-                            >
-                                +91 98765 43210
-                            </a>
-                        </div>
+                {/* Clean Header */}
+                <div className="mb-16">
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                        Get In <span className="text-blue-500">Touch</span>
+                    </h2>
+                    <p className="text-gray-400 text-base max-w-md mx-auto leading-relaxed">
+                        I’m currently looking for new opportunities and my inbox is always open.
+                        Whether you have a question or just want to say hi, I’ll get back to you!
+                    </p>
+                </div>
+
+                {/* Contact Cards Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                    {/* Email Card */}
+                    <ContactCard
+                        icon={<RiMailLine />}
+                        label="Email Me"
+                        value="faizkhan@gmail.com"
+                        href="mailto:faizkhan@gmail.com"
+                    />
+
+                    {/* Phone Card */}
+                    <ContactCard
+                        icon={<RiPhoneLine />}
+                        label="Call Me"
+                        value="+91 98765 43210"
+                        href="tel:+919876543210"
+                    />
+
+                    {/* Location Card */}
+                    <ContactCard
+                        icon={<RiMapPinLine />}
+                        label="Location"
+                        value="Saharanpur, India"
+                    />
+                </div>
+
+                {/* Social Links Sub-Section */}
+                <div className="mt-16 pt-8 border-t border-white/5">
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500 mb-6">Social Profiles</p>
+                    <div className="flex justify-center gap-8">
+                        <SocialLink href="https://github.com/your-github" icon={<RiGithubLine />} label="GitHub" />
+                        <SocialLink href="https://linkedin.com/in/your-linkedin" icon={<RiLinkedinLine />} label="LinkedIn" />
                     </div>
-
-                    {/* Contact Form */}
-                    <form
-                        onSubmit={handleSubmit}
-                        className="bg-[#111] p-8 rounded-2xl shadow-lg space-y-6 border border-gray-800"
-                    >
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-400">Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                placeholder="Enter your name"
-                                className="w-full px-4 py-2 rounded-lg bg-transparent border border-gray-700 text-white focus:border-purple-400 outline-none"
-                                required
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-400">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                placeholder="Enter your email"
-                                className="w-full px-4 py-2 rounded-lg bg-transparent border border-gray-700 text-white focus:border-purple-400 outline-none"
-                                required
-                            />
-                        </div>
-
-                        <div>
-                            <label className="block mb-2 text-sm text-gray-400">Message</label>
-                            <textarea
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                rows="4"
-                                placeholder="Write your message..."
-                                className="w-full px-4 py-2 rounded-lg bg-transparent border border-gray-700 text-white focus:border-cyan-400 outline-none resize-none"
-                                required
-                            ></textarea>
-                        </div>
-
-                        <button
-                            type="submit"
-                            className="w-full py-3 rounded-lg bg-purple-500 hover:bg-purple-600 transition text-black font-semibold"
-                        >
-                            Send Message
-                        </button>
-                    </form>
                 </div>
             </div>
         </section>
+    );
+}
+
+// Simple Card Component
+function ContactCard({ icon, label, value, href }) {
+    const Content = () => (
+        <div className="p-6 bg-slate-900/40 border border-white/5 rounded-2xl hover:border-blue-500/30 transition-all group h-full flex flex-col items-center">
+            <div className="text-2xl text-blue-500 mb-4 group-hover:scale-110 transition-transform">
+                {icon}
+            </div>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-1">{label}</p>
+            <p className="text-sm font-medium text-gray-200">{value}</p>
+        </div>
+    );
+
+    return href ? (
+        <a href={href} className="block">{Content()}</a>
+    ) : (
+        <div>{Content()}</div>
+    );
+}
+
+// Minimal Social Link
+function SocialLink({ href, icon, label }) {
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-gray-400 hover:text-blue-500 transition-colors group"
+        >
+            <span className="text-xl">{icon}</span>
+            <span className="text-sm font-medium">{label}</span>
+        </a>
     );
 }
