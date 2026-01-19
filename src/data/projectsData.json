@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Samsung Clone",
+        "description": "A responsive Samsung website clone built using HTML CSS & Javascript",
+        "image": "/assets/images/samsung.png",
+        "liveLink": "https://samsung-websiite-clone.vercel.app/",
+        "githubLink": "https://github.com/mohd-faiz229/samsung-websiite-clone"
+    },
+    {
+        "id": 2,
+        "title": "Mega Mart",
+        "description": "An e-commerce landing page UI showcasing product listings",
+        "image": "/assets/images/portfolio.png",
+        "liveLink": "https://your-megamart-link.com",
+        "githubLink": "https://github.com/yourusername/megamart"
+    },
+    {
+        "id": 3,
+        "title": "Weather App",
+        "description": "A responsive weather application built with modern APIs to display accurate, real-time weather data.",
+        "image": "/assets/images/portfolio.png",
+        "liveLink": "https://weather-app-ten-inky-83.vercel.app/",
+        "githubLink": "https://github.com/mohd-faiz229/weather-app"
+    }
+]
