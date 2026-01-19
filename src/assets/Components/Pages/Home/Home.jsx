@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import pfimage from "../../../../assets/images/pfimage.png";
+import pfimage from "../../../Images/pfimage.jpg";
 
 export default function Home() {
     const navigate = useNavigate();
