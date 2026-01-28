@@ -13,10 +13,10 @@ export default function Footer() {
                 <div className="flex justify-center gap-6">
                     {/* GitHub */}
                     <a
-                        href="https://github.com/"
+                        href="https://github.com/mohd-faiz229"
                         target="_blank"
-                        rel="noreferrer"
-                        className="hover:text-purple-400 transition flex items-center gap-2"
+                      
+                        className="hover:text-blue-500 transition flex items-center gap-2"
                     >
                         
                         GitHub
@@ -28,7 +28,7 @@ export default function Footer() {
                         href="https://linkedin.com/"
                         target="_blank"
                         rel="noreferrer"
-                        className="hover:text-purple-400 transition flex items-center gap-2"
+                        className="hover:text-blue-500 transition flex items-center gap-2"
                     >
                         LinkedIn
                         

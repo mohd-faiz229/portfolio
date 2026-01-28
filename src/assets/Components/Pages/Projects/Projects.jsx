@@ -1,34 +1,38 @@
-import React from "react";
+import React, { useState } from "react"; // Added useState though not used yet, as per your request
 import { RiGithubLine, RiExternalLinkLine } from "react-icons/ri";
+import inventory from "../../../Images/Inventory.png";
+import crm from "../../../Images/CRM.png";
+import weather from "../../../Images/WeatherApp.png";
 
 export default function Projects() {
+    // Keep your projectData exactly as it was, but with simpler descriptions
     const projectData = [
         {
-            title: "Inventory Management System",
-            type: "Full-Stack (CRUD)",
-            description: "A professional inventory suite featuring real-time stock tracking, RESTful API integration, and secure database management.",
+            title: "Inventory System",
+            type: "Full-Stack",
+            description: "A simple app to keep track of products. You can add new items, edit details, and delete them from the list.",
             tags: ["React", "Node.js", "Express", "MongoDB"],
             github: "https://github.com/your-repo",
-            live: "",
-            image: "https://via.placeholder.com/600x400/0a0f1e/3b82f6?text=Inventory+Management"
+            live: "", // Kept empty so the button disappears
+            image: inventory
         },
         {
-            title: "Customer Relationship Manager",
-            type: "Full-Stack (CRUD)",
-            description: "High-performance CRM designed for streamlined client data handling, contact lifecycle management, and secure authentication.",
+            title: "Customer Manager (CRM)",
+            type: "Full-Stack",
+            description: "An app to save customer info like names and emails. It helps you manage your list of clients in one place.",
             tags: ["React", "Node.js", "Express", "MongoDB"],
-            github: "https://github.com/your-repo",
-            live: "",
-            image: "https://via.placeholder.com/600x400/0a0f1e/3b82f6?text=CRM+System"
+            github: "https://github.com/mohd-faiz229/CRM-CustomerRelationalManagement-frontend.git",
+            live: "https://crm-customer-relational-management.vercel.app/login",
+            image: crm
         },
         {
-            title: "Real-time Weather Engine",
-            type: "Frontend (API Basics)",
-            description: "Dynamic weather forecasting application leveraging OpenWeather APIs to deliver precise local climate data through a sleek UI.",
-            tags: ["HTML", "CSS", "JavaScript", "OpenWeather API"],
-            github: "https://github.com/your-repo",
-            live: "",
-            image: "https://via.placeholder.com/600x400/0a0f1e/3b82f6?text=Weather+App"
+            title: "Weather App",
+            type: "Frontend",
+            description: "A simple website that talks to a weather API. Type in a city name to see the current temperature.",
+            tags: ["HTML", "CSS", "JavaScript", "API"],
+            github: "https://github.com/mohd-faiz229/weather-app.git",
+            live: "https://weather-app-ten-inky-83.vercel.app/",
+            image: weather
         }
     ];
 
@@ -36,75 +40,50 @@ export default function Projects() {
         <section id="projects" className="relative bg-[#020617] text-white py-24 px-6">
             <div className="max-w-6xl mx-auto">
 
-                {/* Section Header */}
                 <div className="mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-center md:text-left">
-                        Featured <span className="text-blue-500">Projects</span>
+                    <h2 className="text-3xl font-bold text-center md:text-left">
+                        My <span className="text-blue-500">Projects</span>
                     </h2>
-                    <p className="text-gray-400 text-sm max-w-lg leading-relaxed text-center md:text-left">
-                        A selection of my recent work, focusing on clean architecture,
-                        responsive design, and robust backend logic.
+                    <p className="text-gray-400 text-sm mt-2 text-center md:text-left">
+                        Here are a few things I have built while learning web development.
                     </p>
                 </div>
 
-                {/* Projects Grid - 3 Columns on Large Screens */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projectData.map((project, index) => (
-                        <div
-                            key={index}
-                            className="group bg-slate-900/40 border border-white/5 rounded-[1.5rem] overflow-hidden hover:border-blue-500/20 transition-all duration-500 shadow-xl flex flex-col"
-                        >
-                            {/* Project Image Container */}
-                            <div className="relative aspect-video overflow-hidden">
-                                <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                />
-                                <div className="absolute top-3 left-3 bg-[#020617]/80 backdrop-blur-md border border-white/10 px-2 py-0.5 rounded-full z-20">
-                                    <span className="text-[8px] font-bold text-blue-400 uppercase tracking-widest">{project.type}</span>
-                                </div>
-                            </div>
+                        <div key={index} className="bg-slate-900 border border-white/10 rounded-xl overflow-hidden flex flex-col">
 
-                            {/* Project Details */}
-                            <div className="p-5 flex flex-col flex-grow space-y-3">
-                                <h3 className="text-lg font-bold text-white group-hover:text-blue-500 transition-colors leading-tight">
-                                    {project.title}
-                                </h3>
+                            <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full aspect-video object-cover"
+                            />
 
-                                <p className="text-gray-400 text-xs leading-relaxed line-clamp-2 flex-grow">
-                                    {project.description}
-                                </p>
+                            <div className="p-5 flex flex-col flex-grow">
+                                <span className="text-[10px] text-blue-400 font-bold uppercase mb-2">{project.type}</span>
+                                <h3 className="text-lg font-bold mb-2">{project.title}</h3>
+                                <p className="text-gray-400 text-sm mb-4 flex-grow">{project.description}</p>
 
-                                {/* Tech Stack Tags */}
-                                <div className="flex flex-wrap gap-1.5 pt-1">
+                                <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tags.map((tag, i) => (
-                                        <div key={i} className="flex items-center gap-1 px-2 py-0.5 bg-white/5 border border-white/5 rounded-full">
-                                            <div className="w-1 h-1 bg-blue-500 rounded-full" />
-                                            <span className="text-[8px] font-bold text-gray-300 uppercase">{tag}</span>
-                                        </div>
+                                        <span key={i} className="text-[10px] bg-white/5 px-2 py-1 rounded border border-white/10 uppercase">
+                                            {tag}
+                                        </span>
                                     ))}
                                 </div>
 
-                                {/* Action Buttons */}
-                                <div className="flex gap-4 pt-3 border-t border-white/5">
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-1.5 text-[10px] font-bold text-gray-400 hover:text-white transition-colors"
-                                    >
-                                        <RiGithubLine className="text-base" /> CODE
+                                <div className="flex gap-4 pt-4 border-t border-white/5">
+                                    {/* GitHub Link */}
+                                    <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-xs text-gray-300 hover:text-white">
+                                        <RiGithubLine /> CODE
                                     </a>
-                                    <a
-                                        href={project.live}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center gap-1.5 text-[10px] font-bold text-blue-500 hover:text-blue-400 transition-colors"
-                                    >
-                                        <RiExternalLinkLine className="text-base" /> LIVE DEMO
-                                    </a>
+
+                                    {/* BASIC CONDITION: Only shows if live is NOT an empty string */}
+                                    {project.live !== "" && (
+                                        <a href={project.live} target="_blank" rel="noreferrer" className="flex items-center gap-1 text-xs text-blue-500 hover:text-blue-400">
+                                            <RiExternalLinkLine /> LIVE DEMO
+                                        </a>
+                                    )}
                                 </div>
                             </div>
                         </div>
